@@ -1,0 +1,2227 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 开年 AI 大事件时间线</title>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --bg2: #0d1225;
+    --bg3: #111827;
+    --cyan: #00d4ff;
+    --purple: #8b5cf6;
+    --pink: #ec4899;
+    --green: #10b981;
+    --orange: #f59e0b;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: rgba(255,255,255,0.08);
+    --glass: rgba(255,255,255,0.04);
+    --glass2: rgba(255,255,255,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
+
+  /* ===== PARTICLES ===== */
+  #particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: float linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, rgba(0,212,255,0.06) 40%, transparent 70%);
+    pointer-events: none;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(139,92,246,0.15);
+    border: 1px solid rgba(139,92,246,0.4);
+    border-radius: 50px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.8rem;
+    color: var(--purple);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 0.8s ease;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--purple);
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, var(--cyan) 30%, var(--purple) 60%, var(--pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInDown 0.8s ease 0.2s both;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s ease 0.4s both;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease 0.6s both;
+  }
+
+  .stat-card {
+    background: var(--glass2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 2rem;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 120px;
+  }
+
+  .stat-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0,212,255,0.15);
+    transform: translateY(-3px);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    animation: fadeInUp 1s ease 1s both;
+  }
+
+  .scroll-arrow {
+    width: 24px; height: 24px;
+    border-right: 2px solid var(--cyan);
+    border-bottom: 2px solid var(--cyan);
+    transform: rotate(45deg);
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(6px); }
+  }
+
+  /* ===== STICKY NAV ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,14,26,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    min-width: 40px;
+  }
+
+  .filter-btn {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.35rem 0.9rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  .filter-btn.active {
+    background: rgba(0,212,255,0.12);
+    border-color: var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 10px rgba(0,212,255,0.2);
+  }
+
+  .cat-btn { border-radius: 50px; }
+
+  .cat-btn[data-cat="模型发布"].active { background: rgba(0,212,255,0.12); border-color: var(--cyan); color: var(--cyan); }
+  .cat-btn[data-cat="融资并购"].active { background: rgba(16,185,129,0.12); border-color: var(--green); color: var(--green); }
+  .cat-btn[data-cat="产品更新"].active { background: rgba(139,92,246,0.12); border-color: var(--purple); color: var(--purple); }
+  .cat-btn[data-cat="政策监管"].active { background: rgba(245,158,11,0.12); border-color: var(--orange); color: var(--orange); }
+  .cat-btn[data-cat="研究突破"].active { background: rgba(236,72,153,0.12); border-color: var(--pink); color: var(--pink); }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 180px;
+    max-width: 300px;
+  }
+
+  .search-wrap::before {
+    content: '🔍';
+    position: absolute;
+    left: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    pointer-events: none;
+  }
+
+  #searchInput {
+    width: 100%;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.35rem 0.8rem 0.35rem 2rem;
+    color: var(--text);
+    font-size: 0.8rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  #searchInput:focus { border-color: var(--cyan); }
+  #searchInput::placeholder { color: var(--text-muted); }
+
+  /* ===== MAIN LAYOUT ===== */
+  .main-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 900px) {
+    .main-wrap { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--purple) 5%, var(--cyan) 50%, var(--pink) 95%, transparent);
+    transform: translateX(-50%);
+    opacity: 0.4;
+  }
+
+  @media (max-width: 700px) {
+    .timeline-line { left: 24px; }
+  }
+
+  .date-group {
+    position: relative;
+    margin-bottom: 3rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .date-group.hidden {
+    display: none;
+  }
+
+  .date-node-wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .date-node-wrap { justify-content: flex-start; padding-left: 0; }
+  }
+
+  .date-node {
+    background: linear-gradient(135deg, var(--bg2), var(--bg3));
+    border: 2px solid var(--purple);
+    border-radius: 50px;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.05em;
+    box-shadow: 0 0 20px rgba(139,92,246,0.3), 0 0 40px rgba(0,212,255,0.1);
+    position: relative;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+  }
+
+  .date-node:hover {
+    box-shadow: 0 0 30px rgba(139,92,246,0.5), 0 0 60px rgba(0,212,255,0.2);
+    transform: scale(1.05);
+  }
+
+  .date-node .weekday {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-left: 0.4rem;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 700px) {
+    .events-grid {
+      grid-template-columns: 1fr;
+      padding: 0 0 0 3.5rem;
+    }
+  }
+
+  .event-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    animation: fadeInCard 0.5s ease both;
+  }
+
+  @keyframes fadeInCard {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .event-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .event-card.cat-模型发布::before { background: var(--cyan); }
+  .event-card.cat-融资并购::before { background: var(--green); }
+  .event-card.cat-产品更新::before { background: var(--purple); }
+  .event-card.cat-政策监管::before { background: var(--orange); }
+  .event-card.cat-研究突破::before { background: var(--pink); }
+
+  .event-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.15);
+    background: var(--glass2);
+  }
+
+  .event-card.cat-模型发布:hover { box-shadow: 0 8px 25px rgba(0,212,255,0.12); border-color: rgba(0,212,255,0.3); }
+  .event-card.cat-融资并购:hover { box-shadow: 0 8px 25px rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.3); }
+  .event-card.cat-产品更新:hover { box-shadow: 0 8px 25px rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); }
+  .event-card.cat-政策监管:hover { box-shadow: 0 8px 25px rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); }
+  .event-card.cat-研究突破:hover { box-shadow: 0 8px 25px rgba(236,72,153,0.12); border-color: rgba(236,72,153,0.3); }
+
+  .event-card.hidden { display: none; }
+
+  .event-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .cat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 50px;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .cat-badge.模型发布 { background: rgba(0,212,255,0.12); color: var(--cyan); border: 1px solid rgba(0,212,255,0.25); }
+  .cat-badge.融资并购 { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.25); }
+  .cat-badge.产品更新 { background: rgba(139,92,246,0.12); color: var(--purple); border: 1px solid rgba(139,92,246,0.25); }
+  .cat-badge.政策监管 { background: rgba(245,158,11,0.12); color: var(--orange); border: 1px solid rgba(245,158,11,0.25); }
+  .cat-badge.研究突破 { background: rgba(236,72,153,0.12); color: var(--pink); border: 1px solid rgba(236,72,153,0.25); }
+
+  .event-text {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .star-badge {
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* ===== NO RESULTS ===== */
+  .no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+    display: none;
+  }
+
+  .no-results.show { display: block; }
+  .no-results-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 120px;
+  }
+
+  .sidebar-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sidebar-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Category distribution */
+  .cat-dist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .cat-dist-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    width: 60px;
+    flex-shrink: 0;
+  }
+
+  .cat-dist-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .cat-dist-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+
+  .cat-dist-count {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    width: 28px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* Company mentions */
+  .company-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .company-name {
+    font-size: 0.75rem;
+    color: var(--text);
+    width: 70px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .company-bar-wrap {
+    flex: 1;
+    height: 5px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .company-bar {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+    transition: width 1s ease;
+  }
+
+  .company-count {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* Weekly chart */
+  .weekly-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 60px;
+    padding-top: 0.5rem;
+  }
+
+  .week-bar-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .week-bar {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(to top, var(--purple), var(--cyan));
+    transition: height 1s ease;
+    min-height: 4px;
+  }
+
+  .week-label {
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  footer span {
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== MONTH DIVIDER ===== */
+  .month-divider {
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .month-divider-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg);
+    padding: 0 1.5rem;
+  }
+
+  .month-divider-line {
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--purple), transparent);
+    z-index: -1;
+  }
+
+  .month-divider-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.1em;
+  }
+
+  .month-divider-icon { font-size: 1.2rem; }
+
+  /* ===== ACTIVE FILTER INDICATOR ===== */
+  .filter-status {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 0.2rem 0;
+  }
+
+  .filter-status span { color: var(--cyan); font-weight: 600; }
+
+  /* ===== BACK TO TOP ===== */
+  #backToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--purple), var(--cyan));
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(139,92,246,0.4);
+  }
+
+  #backToTop.show { opacity: 1; transform: translateY(0); }
+  #backToTop:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(139,92,246,0.5); }
+
+  /* ===== HIGHLIGHT SEARCH ===== */
+  .highlight {
+    background: rgba(0,212,255,0.25);
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Particles -->
+<div id="particles"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">2026 · AI 大事件全览</div>
+  <h1>2026 开年 AI 大事件</h1>
+  <p class="hero-subtitle">1月1日 — 3月2日 · 共62天 · 重大事件全览</p>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <span class="stat-number" id="totalEvents">0</span>
+      <div class="stat-label">总事件数</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">62</span>
+      <div class="stat-label">覆盖天数</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number" id="totalDates">0</span>
+      <div class="stat-label">活跃日期</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">30+</span>
+      <div class="stat-label">涉及公司</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>向下滚动探索</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- Sticky Nav -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <div class="nav-row">
+      <span class="nav-label">月份</span>
+      <button class="filter-btn active" data-month="全部">全部</button>
+      <button class="filter-btn" data-month="一月">一月</button>
+      <button class="filter-btn" data-month="二月">二月</button>
+      <button class="filter-btn" data-month="三月">三月</button>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="搜索事件关键词...">
+      </div>
+    </div>
+    <div class="nav-row">
+      <span class="nav-label">分类</span>
+      <button class="filter-btn cat-btn active" data-cat="全部">全部</button>
+      <button class="filter-btn cat-btn" data-cat="模型发布">🤖 模型发布</button>
+      <button class="filter-btn cat-btn" data-cat="融资并购">💰 融资并购</button>
+      <button class="filter-btn cat-btn" data-cat="产品更新">🚀 产品更新</button>
+      <button class="filter-btn cat-btn" data-cat="政策监管">📋 政策监管</button>
+      <button class="filter-btn cat-btn" data-cat="研究突破">🔬 研究突破</button>
+      <span class="filter-status" id="filterStatus"></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main-wrap">
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="timeline-line"></div>
+    <div id="timelineContainer"></div>
+    <div class="no-results" id="noResults">
+      <div class="no-results-icon">🔍</div>
+      <p>未找到匹配的事件</p>
+      <p style="font-size:0.8rem;margin-top:0.5rem">请尝试其他关键词或筛选条件</p>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">📊 分类分布</div>
+      <div id="catDistribution"></div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">🏢 热门公司</div>
+      <div id="companyMentions"></div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">📅 每周事件量</div>
+      <div class="weekly-chart" id="weeklyChart"></div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>数据来源：<span>AI早报</span> · 更新至 2026-03-02 · 共记录 <span id="footerCount">0</span> 条重大事件</p>
+</footer>
+
+<button id="backToTop" title="回到顶部">↑</button>
+
+<script>
+// ===== DATA =====
+const rawData = [
+  { date: "2026-01-01", events: [
+    "LGAI-EXAONE发布K-EXAONE-236B-A23B模型",
+    "Upstage发布Solar-Open-100B模型",
+    "NC-AI发布VAETKI-112B-A10B模型",
+    "细红线发布AI讲书App：且听",
+    "月之暗面完成5亿美元C轮融资",
+    "Nvidia洽谈以30亿美元收购AI21 Labs",
+    "软银约40亿美元收购DigitalBridge",
+    "xAI建设第三座数据中心设施以扩大算力"
+  ]},
+  { date: "2026-01-02", events: [
+    "至知研究院发布IQuest-Coder-V1开源代码大模型",
+    "DeepSeek发布mHC架构论文，梁文锋现身作者名单",
+    "iFlow上线iFlow-ROME-30BA3B预览版模型",
+    "月之暗面kimi-cli支持视频并拟发布新模型",
+    "Prime Intellect开源RLM",
+    "BlinkDL发布RWKV-7-G1系列模型",
+    "OpenAI将发新音频模型"
+  ]},
+  { date: "2026-01-03", events: [
+    "Claude Code缔造者分享高效开发方案",
+    "斯坦福等发布TTT-E2E长文本模型",
+    "字节等团队发布层级化DLCM架构",
+    "杨立昆称Llama 4测试结果被粉饰"
+  ]},
+  { date: "2026-01-04", events: [
+    "元象开源XVERSE-Ent泛娱乐底座大模型",
+    "IQuestLab承认IQuest-Coder-V1模型基准测试结果存在问题并修正成绩",
+    "Anthropic将从Broadcom购买100万个TPUv7",
+    "Claude Code一小时完成Google团队一年工作量",
+    "xAI疑似新模型Grok 4.20现身Arena",
+    "NVIDIA NIM APIs提供GLM-4.7与MiniMax-m2.1"
+  ]},
+  { date: "2026-01-05", events: [
+    "MiroMind发布MiroThinker-v1.5开源Agent",
+    "YuanLab.ai开源发布Yuan3.0 Flash多模态大模型",
+    "中国电信TeleAI开源星辰语义大模型TeleChat3",
+    "智谱AI GLM-Image模型适配Hugging Face"
+  ]},
+  { date: "2026-01-06", events: [
+    "英伟达发布Rubin架构及系列开源AI模型",
+    "TII发布Falcon H1R 7B推理模型",
+    "华为开源openPangu-VL-7B多模态模型",
+    "亚马逊发布Alexa+网页版及重构移动端App",
+    "Boston Dynamics与Google DeepMind达成AI合作",
+    "Google发布Google TV版Gemini新功能",
+    "Google DeepMind暗示恢复产品发布",
+    "OpenAI调整Codex CLI周限额机制",
+    "Trae与Supabase深度集成",
+    "ima.copilot发布2.1.3版本支持PPT生成功能",
+    "字节跳动发布SeedFold模型",
+    "字节跳动回应豆包AI眼镜出货传闻",
+    "字节跳动豆包1.8大模型恢复公开可用",
+    "腾讯元宝回应AI助手辱骂用户事件",
+    "微信发布AI小程序成长计划"
+  ]},
+  { date: "2026-01-07", events: [
+    "蚂蚁集团与浙江卫健开源AntAngelMed医疗模型",
+    "Lightricks开源LTX-2音视频基础模型",
+    "Nous Research发布NousCoder-14B编程模型",
+    "Liquid AI发布LFM2.5端侧模型系列",
+    "Anthropic发布Claude Code桌面端预览版",
+    "Google AI Studio更新工具组件及使用仪表盘",
+    "Obsidian CEO发布Claude Skills技能库",
+    "Cursor发布动态上下文发现功能",
+    "Z Lab发布DFlash推测解码框架",
+    "vLLM发布Semantic Router v0.1 Iris版本",
+    "Goldfish模型亮相Image Arena",
+    "OpenAI澄清GPT-5.2-Codex-Max传闻",
+    "Artificial Analysis发布Intelligence报告"
+  ]},
+  { date: "2026-01-08", events: [
+    "OpenAI发布ChatGPT Health",
+    "Gemini CLI更新预览版支持Agent Skills",
+    "OpenBMB发布ChatDev 2.0多智能体平台",
+    "Liquid AI与AMD合作推出本地专用会议摘要模型",
+    "Andrej Karpathy发布nanochat miniseries v1",
+    "ByteDance提出NextFlow多模态统一模型",
+    "Anthropic计划新一轮百亿美元融资",
+    "雷蛇发布AI硬件及开源平台",
+    "联想发布AI超级智能体天禧并宣布多项合作",
+    "Ai2研究员发布开源模型现状报告"
+  ]},
+  { date: "2026-01-09", events: [
+    "阿里开源Qwen3多模态嵌入与重排序模型",
+    "阿里巴巴发布ROME-V0.1智能体模型",
+    "AI21 Labs发布Jamba2系列语言模型",
+    "MOSI推出MOSS-Transcribe-Diarize语音转录模型",
+    "NVIDIA发布Music Flamingo音乐理解模型",
+    "OpenAI面向医疗机构发布AI解决方案套件",
+    "Google为Gmail推出系列Gemini AI新功能",
+    "Anthropic发布Claude Code 2.1.1",
+    "Microsoft推出Copilot Checkout功能",
+    "Visual Studio Code发布12月版本更新",
+    "TRAE中国版SOLO完成全量免费开放",
+    "字节跳动发布DreamStyle视频风格化框架",
+    "Kling Team开源视频统一模型UniVideo",
+    "Cerebras上线GLM-4.7模型",
+    "智谱唐杰：很快GLM-5将跟大家见面",
+    "阿里云发布多模态交互开发套件",
+    "xAI即将推出Grok Build编程Agent",
+    "xAI在密西西比州投资超200亿美元建设数据中心"
+  ]},
+  { date: "2026-01-10", events: [
+    "Google Antigravity为Google AI Pro用户设立每周用量上限",
+    "Anthropic限制竞争对手使用Claude",
+    "Anthropic发布Claude Code CLI 2.1.2与2.1.3更新",
+    "Anthropic开源Code-Simplifier Agent",
+    "Amp测试展示广告支持免费使用前沿模型",
+    "GPT-5.2 Pro参与解决埃尔德什数学问题",
+    "AxiomProver在2025年普特南数学竞赛获满分",
+    "清华大学团队AI平台实现基因组级别药物虚拟筛选",
+    "摩尔线程SimuMax v1.1升级为全栈工作流平台",
+    "Anthropic发布AI Agent评估方法详解",
+    "Wan App在iOS与Android平台上线",
+    "Midjourney发布Niji V7模型",
+    "ElevenLabs推出Scribe v2转录模型",
+    "高德地图发布FantasyWorld几何一致世界模型"
+  ]},
+  { date: "2026-01-11", events: [
+    "OpenAI将授权ChatGPT订阅接入更多开源编程工具",
+    "OpenAI推出MCP Server一站式平台",
+    "Anthropic发布新一代AI安全防护系统",
+    "xAI重构X平台算法并承诺开源",
+    "Open WebUI发布重大更新",
+    "OpenAI吸纳Convogo创始团队加入",
+    "Meta签署6.6吉瓦核能协议",
+    "Linus Torvalds发布开源项目AudioNoise"
+  ]},
+  { date: "2026-01-12", events: [
+    "美团开源EvoCUA多模态计算机操作模型",
+    "秘塔AI搜索学术库新增3000万篇论文",
+    "智谱向订阅用户推出上市回馈活动",
+    "AGI-Next：中国AI力量的复盘与再出发",
+    "UniCorn框架解决UMM传导性失语症",
+    "Google移除部分医疗查询AI Overviews"
+  ]},
+  { date: "2026-01-13", events: [
+    "苹果与谷歌达成多年合作，下一代基础模型基于Gemini",
+    "Anthropic发布Cowork：面向非开发者的Agent协作工具",
+    "Google Gemini API提升文件上传限制并支持多种云存储源",
+    "DeepSeek发布Engram模块",
+    "OpenBMB开源AgentCPM-Explore 4B端侧Agent模型",
+    "Vercel Labs开源AI浏览器自动化CLI",
+    "LEMAS发布150K小时多语言语音套件及生成模型",
+    "快手推出Mini版Coding Plan：首月8.8元",
+    "Cursor Beta支持Agent Skills",
+    "TRAE上线多层安全系统",
+    "Manus推出Meeting Minutes功能",
+    "昆仑万维天工推出Skywork Video v1.0视频创作智能体",
+    "1X发布1XWM世界模型驱动NEO人形机器人",
+    "Anthropic发布Claude医疗版",
+    "Google联合行业伙伴发布Universal Commerce Protocol"
+  ]},
+  { date: "2026-01-14", events: [
+    "Google发布Veo 3.1更新",
+    "百川智能开源Baichuan-M3医疗大模型",
+    "Google发布MedGemma 1.5医疗模型",
+    "PixVerse发布PixVerse-R1实时世界模型",
+    "Microsoft发布FrogBoss系列编程模型",
+    "MiniMax发布OctoCodingBench",
+    "NVIDIA联合发布TTT-E2E端到端长上下文方案",
+    "豆包上线豆包爱学AI老师功能",
+    "火山引擎Coding Plan升级支持多个编程模型",
+    "阿里云百炼发布AI编码订阅计划",
+    "支付宝发布智星计划助力开发者变现",
+    "OpenAI下调部分计划模型思考配额",
+    "OpenAI传将发布GPT-5.3模型",
+    "Google正在为Gemini开发Auto Browse功能",
+    "Apple推出Apple Creator Studio创作套件",
+    "Anthropic向Python软件基金会投资150万美元",
+    "Microsoft启动Community-First AI Infrastructure倡议",
+    "Alphabet与NVIDIA深化合作共推AI前沿",
+    "Manus与Similarweb达成数据合作",
+    "美国国防部宣布将xAI的Grok接入五角大楼系统",
+    "Meta裁员Reality Labs千人"
+  ]},
+  { date: "2026-01-15", events: [
+    "Google发布Gemini个人智能Beta版",
+    "美团发布LongCat大推理模型",
+    "百度发布ERNIE-5.0-0110模型",
+    "智谱发布开源图像生成模型GLM-Image",
+    "TRAE国际版限时免除Pro费用",
+    "Claude Code上线工具搜索功能",
+    "OpenAI开放GPT-5.2-Codex API",
+    "Cursor CEO利用GPT-5.2构建三百万行代码浏览器",
+    "OpenAI发布Codex 0.8.0版本",
+    "Google将Gemini引入趋势分析页面",
+    "Kaggle推出社区评估平台",
+    "Google支持Agent技能包",
+    "Kilo支持Agent技能包",
+    "OpenCode发布付费订阅套餐",
+    "生数科技上线一键生成AI MV功能",
+    "千问App月活破亿",
+    "阿里通义开源ArenaRL框架",
+    "TeleAI提出超低视频压缩框架",
+    "伯克利揭示视觉提示评估漏洞",
+    "Manus详解云端沙箱架构",
+    "GitHub发布Copilot SDK预览版",
+    "OpenAI上线ChatGPT翻译工具",
+    "Google测试AI翻译多选项功能",
+    "Perplexity企业版引入股权研究",
+    "NotebookLM开放结构化表格功能",
+    "Gemini助力证明代数几何新定理",
+    "OpenAI与Cerebras达成百亿美元算力合作",
+    "美国修改芯片出口条例",
+    "Anthropic调整组织架构",
+    "OpenAI前高管回归",
+    "英雄联盟神秘高胜率玩家疑为AI",
+    "美参议院通过法案允许起诉AI深度伪造者",
+    "英国警方指责Copilot导致情报失误"
+  ]},
+  { date: "2026-01-16", events: [
+    "Google发布TranslateGemma多语言翻译模型",
+    "OpenAI和Hugging Face等发布Open Responses开源规范",
+    "阶跃星辰开源Step-Audio-R1.1原生语音推理模型",
+    "阶跃星辰开源STEP3-VL-10B多模态模型",
+    "Black Forest Labs发布FLUX.2 klein系列模型",
+    "阿里巴巴发布千问App上线超400项AI办事功能",
+    "OpenAI提升ChatGPT记忆功能",
+    "GitHub Copilot支持OpenCode接入订阅",
+    "Google发布Gemini CLI v0.24.0",
+    "OpenAI支持Roo Code接入ChatGPT订阅",
+    "TRAE宣布中国版与国际版SOLO模式上线Skills支持",
+    "Kiro官方免费层级移除Opus 4.5模型",
+    "SiliconFlow上线推荐官计划",
+    "Anthropic发布2026经济指数报告",
+    "Google发布2025年AI生活调研报告",
+    "GitHub发布Copilot记忆公测并增强BYOK功能",
+    "Unsloth发布算法支持7倍长上下文RL训练",
+    "Wikimedia Foundation与亚马逊及Meta等达成AI训练合作",
+    "Elon Musk称Grok 4.20编码能力或不及Claude",
+    "Claude Opus 4.5据传由TPU训练",
+    "OpenAI投资Sam Altman脑机接口初创公司Merge Labs",
+    "Nvidia领投Harmonic完成C轮融资"
+  ]},
+  { date: "2026-01-17", events: [
+    "OpenAI计划在ChatGPT中测试广告",
+    "OpenAI推出ChatGPT Go订阅服务",
+    "Codex CLI推出实验性的不中断补充Prompt功能",
+    "Kilo上线匿名推理模型Giga Potato",
+    "Kiro发布Run all tasks功能",
+    "Anthropic向Pro订阅开放Claude Cowork",
+    "Google调整Gemini模型每日使用配额",
+    "蚂蚁百灵发布Ling Studio平台",
+    "腾讯发布混元3D Studio 1.2",
+    "ima电脑端上线书签功能",
+    "小米发布MiMo-V2-Flash模型升级",
+    "Vercel Labs发布开源项目json-render",
+    "微软发布Elevate for Educators计划与系列教育AI工具",
+    "支付宝发布AI商业协议ACT",
+    "NVIDIA发布PersonaPlex语音对话模型",
+    "Meta发布Action100M视频数据集",
+    "MiniMax确认即将发布M2.2模型",
+    "OpenAI疑似筹备发布Sonata音频模型",
+    "OpenAI发布RFP构建美国本土硬件供应链",
+    "OpenAI发布回应Elon Musk诉讼的证据与细节",
+    "Replit拟完成4亿美元融资估值达90亿美元",
+    "Higgsfield获1.3亿美元融资估值达13亿"
+  ]},
+  { date: "2026-01-18", events: [
+    "Vercel发布AI技能管理工具add-skill",
+    "ai-forever发布VIBE图像编辑模型",
+    "Cursor发布新版CLI支持Agent模式与云端接力",
+    "Ollama支持Anthropic API及TranslateGemma模型",
+    "Anthropic为Claude Team普通席位开放Claude Code",
+    "Anthropic正为Claude开发多项新功能",
+    "xAI全球首个吉瓦级训练集群Colossus 2投入运行"
+  ]},
+  { date: "2026-01-19", events: [
+    "OpenAI发布商业报告，披露2025年收入超200亿美元",
+    "Google副总裁确认Gemini暂无广告计划",
+    "Warp发布CLI编程Agent深度支持功能",
+    "GitLab发布GitLab Duo Agent Platform",
+    "Claude Code新增执行Plan前自动清除Context功能",
+    "Anthropic正为Claude开发定制化命令功能"
+  ]},
+  { date: "2026-01-20", events: [
+    "智谱AI发布GLM-4.7-Flash轻量级MoE模型",
+    "华为云CodeArts Doer代码智能体公测上线",
+    "阶跃星辰发布阶跃AI桌面助手Windows版",
+    "扣子推出2.0版本并上线企业版",
+    "ManusAI上线App Publishing功能",
+    "昆仑万维发布Skywork Design Agent AI设计工具",
+    "OpenAI阐述AI能力过剩与赋能理念",
+    "Anthropic揭示Assistant Axis对模型人格稳定性的影响",
+    "Google DeepMind提出新型探测架构提升长上下文泛化能力",
+    "安克创新与飞书发布AI录音豆",
+    "格灵深瞳发布丹青大规模中文视觉语言数据集"
+  ]},
+  { date: "2026-01-21", events: [
+    "OpenAI推出ChatGPT年龄预测功能",
+    "面壁智能发布AgentCPM-Report开源模型",
+    "Overworld发布Waypoint-1实时扩散世界模型",
+    "Liquid AI推出LFM2.5-1.2B-Thinking端侧推理模型",
+    "LightOn发布OCR模型LightOnOCR-2",
+    "llama.cpp集成Anthropic Messages API",
+    "Anthropic宣布Claude Code VS Code扩展正式上线",
+    "Anthropic推出Claude健康数据连接功能Beta版",
+    "MiniMax发布Agent 2.0及桌面端AI工作空间",
+    "阿里巴巴推出AIGC创意设计平台呜哩",
+    "OpenRouter发布Response Healing插件自动修复JSON格式错误",
+    "Sam Altman与Elon Musk就ChatGPT安全问题展开公开争论",
+    "Sam Altman确认GPT-5.3存在并征集用户反馈",
+    "Codex将新增多智能体协同功能",
+    "月之暗面估值达48亿美元并开启Kimi新模型API内测",
+    "X公司开源For You推荐算法",
+    "Xiaomi MiMo API开放充值与定价"
+  ]},
+  { date: "2026-01-22", events: [
+    "Anthropic发布Claude新宪法",
+    "Cognition发布代码审查工具Devin Review",
+    "LangChain发布LangSmith Agent Builder",
+    "微软开源9B参数语音模型VibeVoice-ASR",
+    "FlashLabs发布开源语音对话模型Chroma 1.0",
+    "Vercel发布开源智能体技能生态系统",
+    "SweepAI发布15亿参数代码编辑模型",
+    "Inworld AI发布TTS-1.5语音模型",
+    "Ollama新增图像生成功能",
+    "Gemini CLI发布版本更新",
+    "Stitch推出Gemini扩展与服务器",
+    "LM Arena推出视频模型评测",
+    "智谱AI语音输入法永久免费",
+    "智谱AI限售编程计划额度",
+    "OpenAI推送ChatGPT语音更新",
+    "ChatGPT Atlas优化界面与搜索",
+    "谷歌教育版Workspace整合Gemini功能",
+    "谷歌推出免费SAT备考功能",
+    "OpenAI扩展国家合作计划",
+    "OpenAI与盖茨基金会启动非洲医疗AI项目",
+    "DeepMind创始人展望AI变革规模",
+    "Meta超级智能实验室完成首批模型训练",
+    "Yann LeCun加入Logical Intelligence董事会",
+    "苹果计划推出生成式AI版Siri",
+    "苹果开发AI随身设备"
+  ]},
+  { date: "2026-01-23", events: [
+    "Qwen团队开源Qwen3-TTS多语言语音合成模型",
+    "百川智能发布医疗大模型M3 Plus",
+    "百度发布文心大模型5.0正式版",
+    "谷歌DeepMind发文介绍D4RT 4D重建模型",
+    "Cua发布开源Computer-Use Agent基础设施",
+    "Gradium推出顶尖语音克隆技术",
+    "谷歌AI Mode in Search新增Personal Intelligence功能",
+    "秘塔AI推出MetaLaw免费合同审查功能",
+    "Anthropic发布Claude Code最佳实践指南",
+    "腾讯云发布CodeBuddy Code 2.0",
+    "Cursor 2.4发布引入subagents功能",
+    "OpenAI发布Codex CLI 0.89.0版本更新",
+    "JetBrains IDE集成OpenAI Codex",
+    "OpenAI探索基于成果的盈利模式",
+    "OpenAI正在寻求500亿美元新融资",
+    "vLLM转型Inferact获1.5亿美元融资",
+    "DeepMind招聘经济学家研究AGI经济",
+    "cURL因LLM垃圾报告取消赏金计划",
+    "数百位艺术家发起反AI活动主张版权保护"
+  ]},
+  { date: "2026-01-24", events: [
+    "Anthropic发布Claude in Excel预览版",
+    "Claude Cowork面向Team和Enterprise开放",
+    "Claude Code整合命令与升级任务系统",
+    "JetBrains IDE将推ACP Agent Registry",
+    "Stitch发布Agent Skills design-md",
+    "Cerebras推出GLM-4.7-Flash-REAP剪枝模型",
+    "Google Photos推出AI生成表情包功能",
+    "OpenAI将发布Codex相关新产品",
+    "OpenAI发布Codex技术解析系列首篇文章",
+    "OpenAI发文介绍Eval框架优化Codex技能",
+    "OpenAI介绍PostgreSQL扩展至8亿用户架构",
+    "Sakana AI获Google投资并展开合作",
+    "Meta将暂停青少年访问AI角色功能"
+  ]},
+  { date: "2026-01-25", events: [
+    "MiniMax上线角色扮演模型M2-her API",
+    "字节跳动发布扩散代码模型Stable-DiffCoder-8B",
+    "MiroThinker推出报告生成与多格式上传功能",
+    "OpenAI正为ChatGPT开发购物车功能"
+  ]},
+  { date: "2026-01-26", events: [
+    "元宝App春节期间发10亿现金红包",
+    "OpenAI将举办面向开发者的线上会议",
+    "开源Clawdbot本地AI助手发布",
+    "Flowith将发布OS Agent新FlowithOS",
+    "阶跃星辰Step3.5模型或已进入内测",
+    "Anthropic将推Claude安全功能",
+    "苹果计划二月发布谷歌Gemini版Siri",
+    "TTT-Discover模型测试时训练新突破",
+    "谷歌收购3D生成式AI公司CSM"
+  ]},
+  { date: "2026-01-27", events: [
+    "通义千问发布Qwen3-Max-Thinking模型正式版",
+    "月之暗面悄悄上线Kimi K2.5",
+    "腾讯发布混元图生图3.0模型",
+    "英伟达发布开源AI气象模型Earth-2",
+    "Anthropic推出Claude互动工具功能",
+    "MCP Apps官方扩展上线支持多媒体交互",
+    "OpenAI默默升级ChatGPT代码执行功能",
+    "OpenAI或以CPM约60美元的高价兜售ChatGPT广告位",
+    "研究团队发布InFi-Check事实核查框架",
+    "VIGA发布：逆向图形学多模态Agent",
+    "腾讯元宝推出社交AI应用元宝派内测",
+    "微软推出Maia 200 AI推理加速器",
+    "英伟达投资CoreWeave建设AI工厂",
+    "国星宇航披露\"星算\"计划太空算力网络路线图",
+    "阶跃星辰B+轮融资超50亿，印奇出任董事长"
+  ]},
+  { date: "2026-01-28", events: [
+    "通义实验室发布图像生成模型Z-Image标准版",
+    "OpenAI发布免费AI科研协作平台Prism",
+    "Google调整AI订阅用户权益体系",
+    "DeepSeek开源DeepSeek-OCR 2",
+    "腾讯优图发布4B参数视觉语言模型",
+    "Jan团队发布Jan-v3-4B-base-instruct模型",
+    "Arcee AI发布Trinity Large稀疏MoE模型",
+    "艾伦AI发布开源编码模型SERA系列",
+    "Google AI Overviews升级可进行对话",
+    "谷歌Gemini新增切换模型键盘快捷指令功能",
+    "谷歌Gemini 3 Flash引入Agentic Vision",
+    "GitHub仓库新增Agents管理标签页",
+    "Kilo Code发布AI代码审查工具",
+    "Kiro宣布调整免费用户Opus 4.5访问权限"
+  ]},
+  { date: "2026-01-29", events: [
+    "腾讯开源HunyuanImage 3.0图像编辑模型",
+    "美团开源LongCat-Flash-Lite模型",
+    "MiniMax正式发布M2-her多角色交互模型",
+    "Cerebras推出MiniMax-M2.1-REAP剪枝模型",
+    "昆仑万维发布AI音乐生成模型Mureka V8",
+    "Robbyant Team开源交互式世界模型LingBot-World",
+    "JetBrains推出ACP Agent Registry",
+    "Gemini CLI发布0.26.0版新增多项功能",
+    "月之暗面发布Kimi Agent SDK",
+    "LM Studio发布0.4.0版本",
+    "Google正式发布LiteRT框架",
+    "谷歌为Chrome上线Gemini侧边栏",
+    "微软在Excel推出Copilot Agent模式",
+    "谷歌为Gemini新增SAT与JEE备考功能",
+    "雅虎推出AI答案引擎Yahoo Scout",
+    "Genspark发布AI Workspace 2.0获3亿美元融资",
+    "Vidu AI发布Agent 1.0",
+    "Arena品牌重塑聚焦AI技术前沿评估"
+  ]},
+  { date: "2026-01-30", events: [
+    "谷歌DeepMind发布实验性AI世界模型Project Genie",
+    "阿里Qwen开源Qwen3-ASR模型",
+    "OpenAI取消API验证并澄清发现所有权",
+    "Google DeepMind发布基因组预测模型AlphaGenome",
+    "Skywork AI开源SkyReels-V3多模态视频模型",
+    "OpenMOSS开源MOVA同步音视频模型",
+    "飞桨发布PaddleOCR-VL-1.5",
+    "MiniMax发布Music 2.5模型",
+    "xAI正式发布Grok Imagine API",
+    "Cursor发布AI代码溯源标准Agent Trace",
+    "Gemini API中Gemini 3系列模型上线Computer Use工具",
+    "Gradio团队发布Daggr助力AI工作流开发",
+    "Cloudflare发布Moltworker",
+    "Unsloth发布Kimi K2.5模型本地运行方案",
+    "谷歌地图Gemini导航扩展至步行骑行",
+    "Anthropic盗版训练AI再遭天价索赔",
+    "Apple收购面部运动AI公司Q.ai",
+    "SpaceX与xAI商谈合并或为IPO铺路",
+    "微软财报OpenAI投资推动云业务与利润增长",
+    "平头哥发布真武810E性能比肩H20",
+    "OpenAI发文介绍内部自用AI数据分析Agent",
+    "OpenAI宣布ChatGPT将停用GPT-4o等旧模型",
+    "字节跳动阿里据报春节前将发新AI模型",
+    "OpenAI有望达成千亿美元新一轮融资"
+  ]},
+  { date: "2026-01-31", events: [
+    "Anthropic Claude首次规划NASA火星车路线",
+    "Moltbook催生AI Agent自组织社交引争议",
+    "Windsurf发布IDE内模型竞技场，首周免费",
+    "Grok设置页新增NSFW开关选项",
+    "商汤开源多模态推理模型SenseNova-MARS",
+    "StepFun更新Audio-EditX增强声音表现力",
+    "蚂蚁灵波开源LingBot-VA机器人世界模型",
+    "宇树开源UnifoLM-VLA-0赋能具身智能",
+    "生数科技Vidu Q3正式发布支持音视频生成",
+    "OpenCode上线免费Kimi K2.5",
+    "月之暗面升级Kimi Code模型与计费模式",
+    "Firecrawl发布CLI与Skill助力AI获取网页数据",
+    "DeepLearning.AI与Anthropic合作发布Agent Skills课",
+    "Anthropic推出Cowork插件",
+    "Qoder发布桌面AI Agent QoderWork",
+    "Perplexity与微软签约7.5亿美元云服务",
+    "腾讯任命庞天宇为混元多模态负责人",
+    "Anthropic研究揭示AI辅助对编程技能损害",
+    "Kimi.ai发布K2.5技术报告",
+    "Google AI独立证明数学难题",
+    "Google测试Gemini商业版接入Claude模型",
+    "马斯克证实Grok 4.20因电力问题延期"
+  ]},
+  { date: "2026-02-01", events: [
+    "Gemini正在测试从ChatGPT等平台导入对话历史的功能",
+    "LM Studio更新支持本地运行Claude Code",
+    "V0新增导入GitHub项目功能",
+    "Nvidia据称搁置OpenAI千亿协议",
+    "苹果AI核心团队动荡，多人转投Meta谷歌",
+    "SpaceX申请部署百万卫星轨道数据中心",
+    "nanochat百美元内成本训练出GPT-2级别模型",
+    "快手可灵AI预告Kling 3.0全能视频模型"
+  ]},
+  { date: "2026-02-02", events: [
+    "阿里Qoder发布Qwen-Coder-Qoder",
+    "CircleStone发布文生图模型Anima预览版",
+    "Claude Code官方发布团队内部技巧集",
+    "Moltbook数据库泄露",
+    "北京经开区颁发全国首个AI虚拟偶像身份认证",
+    "Kimi与南大发布SimpleSeg赋能模型像素感知",
+    "字节研究团队发布ConceptMoE提升AI推理",
+    "谷歌员工暗示三周内发布新内容"
+  ]},
+  { date: "2026-02-03", events: [
+    "OpenAI发布Codex App",
+    "阶跃星辰发布并开源模型Step 3.5 Flash",
+    "SpaceX正式收购xAI",
+    "智谱发布并开源OCR模型GLM-OCR",
+    "ElevenLabs宣布TTS模型Eleven v3结束测试正式上线",
+    "xAI正式发布Grok Imagine 1.0视频模型",
+    "优必选开源具身智能大模型Thinker",
+    "阿里宣布投入30亿元启动千问App\"春节请客计划\"",
+    "Snowflake与OpenAI达成2亿美元模型集成合作",
+    "谷歌Game Arena新增狼人杀和扑克基准测试",
+    "Google Gemini研究揭示数学猜想新解法",
+    "多家厂商二月新模型发布计划前瞻"
+  ]},
+  { date: "2026-02-04", events: [
+    "通义千问发布开源编程模型Qwen3-Coder-Next",
+    "OpenAI宣布GPT-5.2系列模型提速40%",
+    "OpenBMB发布多模态模型MiniCPM-o 4.5",
+    "ACE Studio与StepFun联合发布开源音乐模型ACE-Step 1.5",
+    "Ai2发布轻量级开源编码模型SERA-14B",
+    "Claude Code新增对话共享",
+    "OpenRouter推出免费模型路由",
+    "苹果发布Xcode 26.3集成Claude",
+    "编码Agent生态推动技能目录统一",
+    "Hugging Face为AI编程助手集成CLI功能",
+    "NotebookLM移动应用推出视频概要功能",
+    "ima上线混元图像3.0图生图功能",
+    "Claude推出Slack连接实现对话内操作",
+    "Gemini App增强科学文献引用能力",
+    "微软构建内容授权市场应对AI版权问题",
+    "OpenAI任命新负责人应对强模型相关风险",
+    "软银英特尔合作开发下一代AI内存ZAM",
+    "Lotus Health AI医生获3500万美元A轮融资",
+    "腾讯混元新研究揭示大模型上下文学习短板",
+    "Anthropic研究：AI错误随难度增加而不连贯",
+    "Kimi团队发布WorldVQA基准",
+    "多模型集成方案刷新ARC-AGI基准SOTA",
+    "OpenAI本周或发布企业Agent平台",
+    "Anthropic被曝开发图像生成模型"
+  ]},
+  { date: "2026-02-05", events: [
+    "上海AI实验室推出万亿参数多模态科学推理模型Intern-S1-Pro",
+    "Mistral AI开源40亿参数实时语音模型Voxtral Mini 4B Realtime 2602",
+    "快手可灵发布可灵3.0",
+    "Claude Code推出/insights分析功能",
+    "ChatGPT全面支持MCP Apps开放标准",
+    "Gemini CLI更新引入扩展并增强MCP控制",
+    "VS Code 1.109发布：演进为多代理平台",
+    "GitHub更新Copilot支持第三方Agent",
+    "Kilo推出Kilo CLI 1.0",
+    "Windsurf推出Tab v2可调节预测模型",
+    "Zed引入多提供商编辑预测",
+    "v0发布重大更新整合开发全流程",
+    "Claude Cowork整合GSuite与Slack服务",
+    "Arena.ai推出基于投票的智能路由模型",
+    "Amazon向全美用户推出AI助手Alexa+",
+    "Perplexity AI发布Deep Research升级版",
+    "昆仑万维发布天工Skywork桌面版",
+    "Google财报披露AI业务推动营收创新高",
+    "Anthropic宣布Claude保持无广告",
+    "Mozilla赋能用户AI拒绝权",
+    "Cerebras完成逾十亿美元融资",
+    "ElevenLabs完成由红杉领投5亿美元融资",
+    "Positron完成2.3亿美元B轮融资",
+    "Meta AI发布EB-JEPA开源库",
+    "阿里Qwen构建SWE-Universe训练框架",
+    "腾讯混元推出HPC-Ops推理算子库",
+    "字节跳动开源AI Agent上下文数据库",
+    "谷歌内测Gemini屏幕自动化功能",
+    "传英伟达准备投资OpenAI 200亿美元"
+  ]},
+  { date: "2026-02-06", events: [
+    "Anthropic发布Claude Opus 4.6",
+    "OpenAI发布GPT-5.3-Codex",
+    "Claude Code推出实验性功能Agent teams",
+    "OpenAI推出企业AI Agent平台Frontier",
+    "OpenAI推出Trusted Access for Cyber试点项目",
+    "GitHub升级Copilot并简化模型访问",
+    "Kiro CLI引入Agent Client Protocol支持",
+    "讯飞星辰MaaS平台推出模型限免优惠",
+    "Google推出原生自适应无障碍框架",
+    "Figma推出位图AI矢量化工具Vectorize",
+    "魔搭推出Singularity Cinema视频生成器",
+    "生数科技完成超6亿元A+轮融资",
+    "Fundamental完成融资并推出表格模型",
+    "阿里千问大模型成为冬奥首个官方大模型",
+    "OpenAI揭晓Codex核心架构",
+    "Cursor发布多智能体编程研究框架",
+    "Anthropic揭示基础设施配置影响Agent评估",
+    "AI2发布OpenScholar攻克学术\"幻觉\"",
+    "OpenAI与Ginkgo合作推出AI实验室降低合成成本40%",
+    "ChatGPT安卓版测试看广告加额度",
+    "Gemini 3 Pro GA或已在Arena测试"
+  ]},
+  { date: "2026-02-07", events: [
+    "美团推出LongCat-Flash-Lite模型",
+    "字节跳动发布视频生成模型Seedance 2.0",
+    "OpenRouter与Kilo Code上线Pony Alpha模型",
+    "Waymo推出Waymo World Model",
+    "X开发者平台上线API按量计费及xAI联动",
+    "OpenAI开放Sora真人角色视频生成功能",
+    "Perplexity推出多模型聚合问答功能",
+    "中科曙光启用超三万卡国产AI算力池",
+    "OpenAI推动内部转向Agent开发模式",
+    "OpenAI将于今年推出AI硬件Dime智能耳机",
+    "面壁智能推出首款AI硬件松果派"
+  ]},
+  { date: "2026-02-08", events: [
+    "Anthropic推出Claude Opus 4.6快速模式",
+    "Augment Code正式上线Context Engine MCP",
+    "OpenAI引入性能专家优化数据中心成本",
+    "OpenAI推进AI模型本土化策略",
+    "千问Qwen等联合推出法律评测基准PLawBench",
+    "苹果计划为CarPlay引入第三方AI语音"
+  ]},
+  { date: "2026-02-09", events: [
+    "Qwen 3.5系列模型即将发布",
+    "xAI上线Grok Imagine Image Pro模型API",
+    "CodeBuddy团队发布AI桌面工作台WorkBuddy",
+    "字节即将推出Seedream 5.0预览版",
+    "Meta AI已在官网测试最新模型Avocado"
+  ]},
+  { date: "2026-02-10", events: [
+    "OpenAI正式启动ChatGPT广告测试",
+    "Sam Altman宣布Codex将保持免费用户可用",
+    "OpenRouter上线stealth模型Aurora Alpha",
+    "Cursor上线编程模型Composer 1.5",
+    "OpenAI逐步向第三方开放GPT-5.3-Codex",
+    "美团AI编程工具CatPaw全量开放",
+    "Hugging Face发布Transformers.js v4预览版",
+    "魔搭ModelScope推出OpenAPI",
+    "Sora上线Extensions续写功能",
+    "智谱GLM-5架构细节曝光总参数或达700B"
+  ]},
+  { date: "2026-02-11", events: [
+    "千问推出Qwen-Image-2.0统一图像模型",
+    "MOSI.AI与OpenMOSS发布MOSS-TTS家族",
+    "蚂蚁集团发布LLaDA2.1扩散大语言模型",
+    "腾讯混元发布HY-1.8B-2Bit端侧量化模型",
+    "OpenResearcher开源：离线研究Agent模型",
+    "OpenAI将高风险GPT-5.3-Codex请求路由至GPT-5.2",
+    "OpenAI更新Responses API支持Agent任务",
+    "Claude Code Desktop引入YOLO模式",
+    "Warp推出Oz云原生Agent编排平台",
+    "Antigravity向Pro账户提供Claude Opus 4.6",
+    "Gemini发布Gemini API skills",
+    "Entire成立并获6000万美元种子融资",
+    "draw.io发布官方MCP服务器",
+    "Anthropic发布Windows版Claude Cowork",
+    "Claude App更新交互回复，开放语音模式",
+    "OpenAI更新ChatGPT Deep Research至GPT-5.2",
+    "Google Stitch推出Figma设计导出功能",
+    "Obsidian发布Obsidian CLI",
+    "豆包上线与央视春晚联名新年活动",
+    "Runway完成3.15亿美元E轮融资",
+    "Nebius收购Tavily",
+    "Anthropic发布2026 Agent编程趋势报告",
+    "Unsloth发布MoE训练优化",
+    "Chrome 146推出WebMCP早期预览",
+    "Gemini正开发Premium Content功能"
+  ]},
+  { date: "2026-02-12", events: [
+    "智谱AI发布并开源GLM-5模型",
+    "DeepSeek上线1M上下文窗口新模型",
+    "MiniMax上线MiniMax M2.5",
+    "OpenAI更新GPT-5.2 Instant模型",
+    "蚂蚁集团发布全模态大模型Ming-flash-omni 2.0",
+    "科大讯飞推出讯飞星火X2大模型",
+    "OpenBMB发布MiniCPM-SALA百万上下文模型",
+    "BOSS直聘推出Nanbeige4.1-3B模型",
+    "Soul推出SoulX-Singer歌声合成模型",
+    "智谱正式发布AI编程工具Z Code",
+    "智谱AI上调GLM Coding Plan价格",
+    "Google AI Studio更新，新增omnibar功能",
+    "Factory与JetBrains合作集成Droid Agent",
+    "Anthropic开放Claude免费版四项功能",
+    "智谱发布GLM in Excel插件",
+    "美团LongCat上线\"深度研究\"智能体",
+    "Stitch推出Ideate Agent",
+    "Mistral AI投资12亿欧元瑞典数据中心",
+    "OpenAI解散任务对齐团队",
+    "xAI进行重组与人事变动",
+    "Prime Intellect推出全栈agentic训练平台",
+    "Gemini Deep Think攻克科研级难题",
+    "Karpathy开源243行纯Python GPT实现",
+    "Anthropic发布Claude Opus 4.6破坏风险报告",
+    "OpenAI开放Windows版Codex Alpha候补",
+    "传谷歌拟推出Gemini 3.1 Pro Preview"
+  ]},
+  { date: "2026-02-13", events: [
+    "Google发布Gemini 3 Deep Think重大更新",
+    "MiniMax正式发布MiniMax M2.5模型",
+    "OpenAI发布GPT-5.3-Codex-Spark",
+    "蚂蚁集团开源Ring-2.5-1T",
+    "字节跳动正式发布视频创作模型Seedance 2.0",
+    "小米MiMo发布MiMo-V2-Flash-0204",
+    "阿里AIDC-AI开源多模态大模型Ovis2.6-30B-A3B",
+    "小红书开源FireRed-Image-Edit模型",
+    "小红书开源语音识别FireRedASR2S系统",
+    "智谱向GLM Coding Pro用户开放GLM-5",
+    "Cursor调整个人订阅方案配额",
+    "Cursor开放长时间运行Agent研究预览功能",
+    "Gemini CLI发布每周更新",
+    "即梦上线多模态视频与图片生成模型",
+    "小红书开源FireRed-OpenStoryline视频创作Agent",
+    "QoderWork for Mac全面开放",
+    "网易有道推出桌面级Agent有道龙虾",
+    "Meta推出Dear Algo AI算法定制功能",
+    "Exa AI发布AI专用200毫秒搜索引擎",
+    "Anthropic完成G轮融资，估值3800亿美元",
+    "Arena.ai推出AI评估研究资助计划",
+    "Simile推出AI模拟平台获1亿美元融资",
+    "Spotify称内部顶尖开发者不再手写代码",
+    "Qwen Chat将上线AI Slides功能"
+  ]},
+  { date: "2026-02-14", events: [
+    "DeepSeek官宣正在测试新的长文本模型结构",
+    "高德地图正式开源FantasyWorld世界模型",
+    "MiniMax正式开源MiniMax-M2.5",
+    "Claude Code桌面端上线SSH功能",
+    "智谱调整Coding Plan中GLM-5模型额度消耗倍率",
+    "TRAE国际版调整会员计费体系",
+    "Cline推出AI编码工具Cline CLI 2.0",
+    "Codex CLI正式上线Windows版Sandbox",
+    "Cloudflare推出Markdown for Agents",
+    "无问芯穹上线Infini Coding Plan",
+    "Qwen Chat推出AI幻灯片生成工具",
+    "ChatGPT发布体验优化更新",
+    "Google AI Studio更新账单与仪表板功能",
+    "Anthropic联手CodePath重塑编程教学",
+    "OpenAI介绍GPT-5.2模型在理论物理领域取得的新突破"
+  ]},
+  { date: "2026-02-15", events: [
+    "字节跳动发布豆包大模型2.0系列",
+    "小红书正式开源图像编辑模型FireRed-Image-Edit-1.0",
+    "通义实验室推出CoPaw智能体工作台",
+    "ChatGPT增加Lockdown Mode与高风险标签",
+    "千问APP扩展\"超级免单卡\"使用范围",
+    "中国首部AIGC动画电影定档2月28日",
+    "字节跳动AI模型引发版权与肖像争议",
+    "OpenAI实现Codex驱动零代码开发",
+    "OpenAI内部模型生成研究级数学解法",
+    "Anthropic或将上线新模型"
+  ]},
+  { date: "2026-02-16", events: [
+    "OpenClaw创始人Peter Steinberger加入OpenAI",
+    "京东开源JoyAI-LLM-Flash模型",
+    "MiniMax上线M2.5-HighSpeed高速版API",
+    "月之暗面推出AI助手Kimi Claw",
+    "MiniMax宣布即将上线OpenRoom",
+    "马斯克宣布Grok 4.20下周发布",
+    "谷歌发布报告披露Gemini遭滥用"
+  ]},
+  { date: "2026-02-17", events: [
+    "阿里千问发布Qwen3.5-397B-A17B模型",
+    "蚂蚁百灵发布Ling-2.5-1T模型",
+    "Manus推出Manus Agents",
+    "Kilo上线优化版Grok Code Fast 1",
+    "智谱启动合伙人计划应对GLM-5算力瓶颈",
+    "Flapping Airplanes获1.8亿融资",
+    "Ricursive Intelligence宣布完成3.35亿美元融资",
+    "传Kimi K3计划于3月发布"
+  ]},
+  { date: "2026-02-18", events: [
+    "Anthropic发布Claude Sonnet 4.6",
+    "xAI上线Grok 4.20测试版",
+    "NotebookLM推出幻灯片Prompt修订与PPTX导出",
+    "蚂蚁集团开源Ming-omni-tts音频生成模型",
+    "Cohere Labs发布Tiny Aya多语言模型",
+    "字节跳动研究团队开源BitDance多模态模型",
+    "Cursor发布2.5版本更新，推出插件市场",
+    "OpenAI修复GPT-5.3-Codex请求重定向问题",
+    "Cerebras下调部分免费层级的推理额度",
+    "Intelligent Internet开源多Agent协作系统Common Ground Core",
+    "Nerve加入OpenAI构建ChatGPT搜索",
+    "传Moonshot AI完成7亿美元融资"
+  ]},
+  { date: "2026-02-19", events: [
+    "Google DeepMind发布Lyria 3音乐生成模型",
+    "xAI发布16-Agent协作模式Grok 4.20 Heavy",
+    "Prime Intellect开源106B参数MoE模型",
+    "印度AI企业Sarvam发布Sarvam-30B与105B",
+    "OpenAI开源Codex App Server支持ChatGPT登录",
+    "Figma推出Claude Code to Figma功能",
+    "OpenAI发布智能合约安全基准EVMbench",
+    "Gemini CLI推出v0.29.0版本每周更新",
+    "谷歌、OpenAI和微软宣布在印计划",
+    "Perplexity撤下搜索平台广告",
+    "World Labs完成融资并与Autodesk合作",
+    "智谱AI发布GLM-5技术报告"
+  ]},
+  { date: "2026-02-20", events: [
+    "Google发布Gemini 3.1 Pro Preview",
+    "Anthropic明确禁止Claude订阅接入第三方",
+    "Anthropic发布Claude API自动缓存",
+    "Zyphra发布首个大脑数据基础模型ZUNA",
+    "Jina AI发布jina-embeddings-v5-text",
+    "Google Jules新增CI修复与提交署名",
+    "Hugging Face推出Coding Agent免费微调模型功能",
+    "OpenRouter上线模型Benchmarks页面",
+    "Cline CLI npm包遭遇供应链攻击",
+    "OpenAI优化ChatGPT交互式代码块",
+    "Anthropic向Pro用户开放Claude in PowerPoint",
+    "网易有道开源个人助理Agent LobsterAI",
+    "Google Labs发布Pomelli影棚级产品照功能",
+    "NotebookLM发布幻灯片修订及PPTX导出",
+    "YouTube扩展对话式AI至电视平台",
+    "OpenAI向AI对齐研究基金捐赠750万美元",
+    "OpenAI联手塔塔集团布局印度市场",
+    "传Ineffable寻求十亿美元种子轮融资",
+    "Anthropic发布关于AI Agent自主性的实证研究报告",
+    "强化学习奠基人Sutton提出经验时代论",
+    "传OpenAI正开发ChatGPT成人模式"
+  ]},
+  { date: "2026-02-21", events: [
+    "Anthropic发布Claude Code Security",
+    "Claude Code桌面版发布重大更新",
+    "Anthropic员工回应Claude Agent SDK及OAuth令牌争议",
+    "GPT-5.3-Codex-Spark升级速率超1200 tokens/s",
+    "Google CLI开启3.1 Pro访问权限",
+    "Ollama发布新版原生集成Cline与Pi",
+    "GGML团队加入Hugging Face",
+    "智谱MiniMax市值接连超越快手京东",
+    "Karpathy称传统App Store模式将过时",
+    "OpenAI或将推出ChatGPT Pro Lite订阅",
+    "Google DeepMind宣布将发布Gemma新模型",
+    "传OpenAI打造首款摄像头AI智能音箱",
+    "OpenAI传获软银领衔百亿注资",
+    "OpenAI扩充ChatGPT Thinking模式上下文窗口"
+  ]},
+  { date: "2026-02-22", events: [
+    "智谱为GLM Coding Plan规则变动与体验下降致歉并提出补偿方案",
+    "千问推出Qwen Coding Plan",
+    "Claude Code引入内置Git Worktree支持",
+    "OpenAI扩展Batch API支持GPT图像模型",
+    "微软确认Copilot默认共享Bing与Edge数据",
+    "OpenClaw发布v2026.2.21版本更新",
+    "Taalas亮相固化模型推理芯片HC1",
+    "Andrej Karpathy评析Claw技术及安全隐患",
+    "OpenAI曾考虑就加拿大疑似枪手的聊天内容向警方报案",
+    "据报OpenAI文件上调了五年收入预期",
+    "Anthropic拟推Claude CLI工具"
+  ]},
+  { date: "2026-02-23", events: [
+    "Google AI Studio发布Build功能重大更新",
+    "Google DeepMind CEO提出AGI判定标准\"爱因斯坦测试\"",
+    "据报OpenAI、甲骨文及软银合资的Stargate数据中心项目陷入停滞",
+    "OpenAI将推出100美元订阅层Pro Lite",
+    "三星Galaxy AI集成Perplexity"
+  ]},
+  { date: "2026-02-24", events: [
+    "OpenAI在Realtime API中上线gpt-realtime-1.5语音模型",
+    "Guide Labs推出可解释因果扩散语言模型Steerling-8B",
+    "OpenAI Responses API新增WebSocket模式",
+    "Google回应封禁滥用Antigravity的Gemini订阅用户",
+    "Anthropic推广COBOL代码自动化迁移方案",
+    "Gemini上线视频模板功能",
+    "openclaw发布2026.2.22版本",
+    "Anthropic指控三家中国AI实验室进行工业级模型蒸馏攻击",
+    "五角大楼考虑终止与Anthropic的AI军事合同",
+    "OpenAI联手四大咨询巨头组建Frontier企业AI联盟",
+    "月之暗面Kimi近20天收入超2025全年"
+  ]},
+  { date: "2026-02-25", events: [
+    "阿里千问发布Qwen3.5模型系列多个模型",
+    "Anthropic推出Claude Code Remote Control功能",
+    "Anthropic推出Claude Cowork重大更新",
+    "OpenAI全面开放GPT-5.3-Codex模型API",
+    "Inception发布Mercury 2扩散架构推理模型",
+    "Liquid AI发布LFM2-24B-A2B",
+    "Reve推出4K图像生成模型Reve V1.5",
+    "Cursor推出新版Cloud Agents",
+    "Cognition发布Devin 2.2",
+    "OpenAI扩展Responses API支持多种文件格式输入",
+    "OpenRouter推出\"Effective Pricing\"参数",
+    "MiniMax推出MaxClaw",
+    "TRAE发布国产模型选择建议",
+    "Google Labs上线AI音乐创作平台ProducerAI",
+    "Google升级Opal，推出Agent Step",
+    "Notion在3.3版本中推出Custom Agents",
+    "DeepSeek应用上线界面与功能优化",
+    "Perplexity推出由OpenAI Realtime模型驱动的新版语音模式",
+    "OpenClaw发布2026.2.23版本",
+    "Meta AMD签署战略合作协议加码AI基础设施",
+    "xAI与美军签约部署Grok模型",
+    "Microsoft主权云扩展功能，支持本地断网运行AI模型",
+    "英伟达与联发科合作开发Arm架构PC芯片",
+    "SambaNova发布SN50 AI芯片，与Intel达成战略合作",
+    "MatX完成5亿美元B轮融资",
+    "Canva收购Cavalry与Mango AI",
+    "Anthropic提出人格选择模型PSM解释AI助手拟人化行为",
+    "Anthropic发布负责任扩展政策RSP 3.0"
+  ]},
+  { date: "2026-02-26", events: [
+    "NVIDIA公布创纪录财报，营收展望超出预期",
+    "Claude Cowork引入定时任务功能",
+    "Google AI创作工具Flow转型为图影一体化平台",
+    "Google在部分品牌手机上推出Gemini自动化功能",
+    "Multiverse Computing发布HyperNova 60B模型",
+    "Gemini CLI向付费层级全面开放Gemini 3.1 Pro",
+    "阿里云百炼Coding Plan上线第三方开源旗舰模型",
+    "GitHub Copilot CLI正式发布并新增研究功能",
+    "Opencode推出OpenCode Go订阅服务",
+    "Nous Research开源发布Hermes持久化AI Agent",
+    "Perplexity推出通用AI数字员工Perplexity Computer",
+    "Adobe Firefly推出Quick Cut视频AI剪辑功能",
+    "谷歌升级Circle to Search支持多物品识别",
+    "Kilocode发布KiloClaw",
+    "Tailscale与LM Studio联合推出LM Link",
+    "Cloudflare联合AI一周推出Next.js替代项目vinext",
+    "字节跳动研究揭示大型推理模型过度思考现象并推出高效解决方案",
+    "英伟达尚未向中国销售任何H200芯片",
+    "阶跃星辰StepFun获巨额融资并或赴港上市",
+    "Anthropic收购Vercept提升Claude计算机使用能力",
+    "Wayve宣布完成12亿美元D轮融资",
+    "美国多州立法限制数据中心建设",
+    "马斯克确认Grok CLI即将推出",
+    "谷歌或将推出Gemini 3.1 Flash图像模型",
+    "Anthropic延续访问已退役Claude Opus 3模型并为其开设博客",
+    "开发者POM公开15.5万条Claude私人对话",
+    "黑客借助Claude攻击墨西哥政府窃取数据",
+    "腾讯元宝回应模型异常输出辱骂内容"
+  ]},
+  { date: "2026-02-27", events: [
+    "Google发布Nano Banana 2图像生成模型",
+    "Claude Code推出跨会话记忆功能",
+    "Google Translate正式接入Gemini",
+    "QuiverAI推出SVG AI模型Arrow 1.0",
+    "Perplexity开源pplx-embed系列文本嵌入模型",
+    "纽约大学Solaris团队开源多人游戏世界模型",
+    "OpenAI推出Codex CLI 0.105.0更新",
+    "Figma与Codex合作打通双向设计代码工作流",
+    "Gemini CLI推出v0.30.0更新",
+    "Cursor正式发布Bugbot Autofix",
+    "Anthropic推出开源开发者支持计划",
+    "OpenAI为ChatGPT推出文件保存功能Library",
+    "Claude免费用户获享Connectors功能",
+    "微软推出Copilot Tasks研究预览版",
+    "Google Stitch官方上线Direct Edits功能",
+    "DeepSeek携手清北发布DualPath推理系统",
+    "Andrej Karpathy称AI编程Agent已实现颠覆性突破",
+    "AMD投资25亿美元与Nutanix共建全栈AI平台",
+    "Intrinsic并入Google加速Physical AI发展",
+    "OpenAI接连挖走Meta两位核心技术高管",
+    "DeepSeek据传正测试V4新模型并向华为授权",
+    "亚马逊据传将向OpenAI投资高达500亿美元",
+    "据传谷歌与Meta签署数十亿美元AI芯片协议",
+    "GPT-5.3被曝或已上线Arena",
+    "传Meta两款AI模型亮相测试平台"
+  ]},
+  { date: "2026-02-28", events: [
+    "OpenAI完成1100亿美元融资并与亚马逊达成战略合作",
+    "Google Antigravity恢复部分账户但重申禁用第三方工具",
+    "Anthropic重置Claude Code用户速率限制",
+    "谷歌将终止Gemini 3 Pro Preview服务",
+    "Anthropic与美国战争部因AI安全限制爆发冲突",
+    "OpenAI发布心理健康功能更新并回应诉讼合并",
+    "七家科技巨头将签署AI数据中心用电协议",
+    "阿里千问AI眼镜将于MWC亮相并开启预约"
+  ]},
+  { date: "2026-03-01", events: [
+    "Kimi宣布Kimi Code Plan免费升级3倍额度",
+    "Claude Code向Pro用户开放Remote Control功能",
+    "Gemini CLI恢复Antigravity封禁用户权限",
+    "Google密钥设计缺陷或致Gemini API密钥泄露",
+    "Obsidian 1.12版本集成官方CLI",
+    "阿里通义实验室开源AI助手CoPaw",
+    "Anthropic回应遭美国政府制裁宣布将起诉",
+    "OpenAI与美国战争部达成AI部署协议",
+    "NVIDIA拟整合Groq技术发布AI专用推理处理器",
+    "面壁智能获得中国电信战略投资"
+  ]},
+  { date: "2026-03-02", events: [
+    "Cognition发布SWE-1.6早期预览版",
+    "Claude登顶App Store；上线记忆导入功能",
+    "Anthropic研究揭示LLM低成本去匿名化威胁",
+    "Anthropic分享构建Claude Code工具经验",
+    "美军在空袭伊朗行动中使用了Claude",
+    "Qwen 3.5传即将推出四款小型稠密开源模型"
+  ]}
+];
+
+// ===== CATEGORIZATION =====
+const catIcons = {
+  "模型发布": "🤖",
+  "融资并购": "💰",
+  "产品更新": "🚀",
+  "政策监管": "📋",
+  "研究突破": "🔬"
+};
+
+function categorize(text) {
+  const t = text;
+  if (/融资|收购|投资|估值|轮融资|亿美元|亿元|并购|战略合作协议/.test(t) && !/发布|开源|推出/.test(t.slice(0,5))) {
+    if (/融资|收购|估值|轮融资|亿美元|亿元/.test(t)) return "融资并购";
+  }
+  if (/法案|监管|政策|起诉|制裁|合规|军事|战争部|五角大楼|国防部|立法|禁止|封禁|版权|肖像争议|安全限制|制裁/.test(t)) return "政策监管";
+  if (/研究|论文|发现|证明|揭示|基准|报告|调研|指数|趋势报告|技术报告|实证|奠基|经济学|猜想|难题|数学|物理|基因组|药物筛选|评估漏洞|短板|不连贯|去匿名化/.test(t)) return "研究突破";
+  if (/发布|开源|上线|推出|亮相/.test(t) && /模型|大模型|LLM|系列模型|语言模型|视觉模型|音频模型|语音模型|图像模型|视频模型|多模态|推理模型|嵌入模型|OCR模型|TTS|ASR|MoE|扩散/.test(t)) return "模型发布";
+  if (/融资|收购|投资|估值|轮融资|亿美元|亿元|并购|签约|合作协议/.test(t)) return "融资并购";
+  return "产品更新";
+}
+
+// Star events (notable)
+const starKeywords = ["完成.*融资", "收购", "1100亿", "500亿", "200亿", "百亿", "千亿", "登顶", "满分", "首个", "正式发布", "重大更新", "创纪录", "AGI", "GPT-5", "Claude Opus", "Gemini 3", "GLM-5", "Qwen3", "豆包.*2.0", "Grok 4", "SpaceX.*收购", "战争部", "美军", "火星车"];
+
+function isStar(text) {
+  return starKeywords.some(kw => new RegExp(kw).test(text));
+}
+
+// ===== WEEKDAY =====
+const weekdays = ["日","一","二","三","四","五","六"];
+function getWeekday(dateStr) {
+  const d = new Date(dateStr);
+  return "周" + weekdays[d.getDay()];
+}
+
+// ===== MONTH MAPPING =====
+function getMonth(dateStr) {
+  const m = parseInt(dateStr.split("-")[1]);
+  if (m === 1) return "一月";
+  if (m === 2) return "二月";
+  if (m === 3) return "三月";
+  return "";
+}
+
+// ===== BUILD TIMELINE =====
+let allEventCards = [];
+let allDateGroups = [];
+
+function buildTimeline() {
+  const container = document.getElementById("timelineContainer");
+  let currentMonth = "";
+  let totalEvents = 0;
+
+  rawData.forEach((dayData, idx) => {
+    const month = getMonth(dayData.date);
+
+    // Month divider
+    if (month !== currentMonth) {
+      currentMonth = month;
+      const divider = document.createElement("div");
+      divider.className = "month-divider";
+      divider.dataset.month = month;
+      divider.innerHTML = `
+        <div class="month-divider-line"></div>
+        <div class="month-divider-inner">
+          <span class="month-divider-icon">${month === "一月" ? "❄️" : month === "二月" ? "🌸" : "🌱"}</span>
+          <span class="month-divider-text">2026年${month}</span>
+          <span class="month-divider-icon">${month === "一月" ? "❄️" : month === "二月" ? "🌸" : "🌱"}</span>
+        </div>
+      `;
+      container.appendChild(divider);
+    }
+
+    const group = document.createElement("div");
+    group.className = "date-group fade-in-up";
+    group.dataset.date = dayData.date;
+    group.dataset.month = month;
+
+    const nodeWrap = document.createElement("div");
+    nodeWrap.className = "date-node-wrap";
+    nodeWrap.innerHTML = `<div class="date-node">${dayData.date.slice(5)} <span class="weekday">${getWeekday(dayData.date)}</span></div>`;
+    group.appendChild(nodeWrap);
+
+    const grid = document.createElement("div");
+    grid.className = "events-grid";
+
+    dayData.events.forEach(eventText => {
+      const cat = categorize(eventText);
+      const star = isStar(eventText);
+      const card = document.createElement("div");
+      card.className = `event-card cat-${cat}`;
+      card.dataset.cat = cat;
+      card.dataset.text = eventText;
+      card.dataset.month = month;
+      card.innerHTML = `
+        <div class="event-header">
+          <span class="cat-badge ${cat}">${catIcons[cat]} ${cat}</span>
+          ${star ? '<span class="star-badge" title="重要事件">⭐</span>' : ''}
+        </div>
+        <div class="event-text">${eventText}</div>
+      `;
+      grid.appendChild(card);
+      allEventCards.push(card);
+      totalEvents++;
+    });
+
+    group.appendChild(grid);
+    container.appendChild(group);
+    allDateGroups.push(group);
+  });
+
+  document.getElementById("totalEvents").textContent = totalEvents;
+  document.getElementById("totalDates").textContent = rawData.length;
+  document.getElementById("footerCount").textContent = totalEvents;
+
+  buildStats(totalEvents);
+}
+
+// ===== STATS =====
+function buildStats(total) {
+  // Category distribution
+  const catCounts = { "模型发布": 0, "融资并购": 0, "产品更新": 0, "政策监管": 0, "研究突破": 0 };
+  allEventCards.forEach(c => { catCounts[c.dataset.cat]++; });
+  const maxCat = Math.max(...Object.values(catCounts));
+  const catColors = { "模型发布": "var(--cyan)", "融资并购": "var(--green)", "产品更新": "var(--purple)", "政策监管": "var(--orange)", "研究突破": "var(--pink)" };
+
+  const catDiv = document.getElementById("catDistribution");
+  Object.entries(catCounts).sort((a,b) => b[1]-a[1]).forEach(([cat, count]) => {
+    const pct = Math.round(count / maxCat * 100);
+    catDiv.innerHTML += `
+      <div class="cat-dist-item">
+        <div class="cat-dist-label">${catIcons[cat]} ${cat}</div>
+        <div class="cat-dist-bar-wrap">
+          <div class="cat-dist-bar" style="width:${pct}%;background:${catColors[cat]};"></div>
+        </div>
+        <div class="cat-dist-count">${count}</div>
+      </div>
+    `;
+  });
+
+  // Company mentions
+  const companies = {
+    "OpenAI": 0, "Anthropic": 0, "Google": 0, "字节跳动": 0, "阿里": 0,
+    "Meta": 0, "微软": 0, "英伟达": 0, "xAI": 0, "智谱": 0,
+    "腾讯": 0, "月之暗面": 0, "MiniMax": 0, "Cursor": 0, "DeepSeek": 0
+  };
+  allEventCards.forEach(c => {
+    const t = c.dataset.text;
+    Object.keys(companies).forEach(co => {
+      if (t.includes(co)) companies[co]++;
+    });
+  });
+  const sortedCo = Object.entries(companies).sort((a,b) => b[1]-a[1]).slice(0,10);
+  const maxCo = sortedCo[0][1];
+  const coDiv = document.getElementById("companyMentions");
+  sortedCo.forEach(([co, cnt]) => {
+    const pct = Math.round(cnt / maxCo * 100);
+    coDiv.innerHTML += `
+      <div class="company-item">
+        <div class="company-name">${co}</div>
+        <div class="company-bar-wrap"><div class="company-bar" style="width:${pct}%"></div></div>
+        <div class="company-count">${cnt}</div>
+      </div>
+    `;
+  });
+
+  // Weekly chart
+  const weeks = {};
+  rawData.forEach(d => {
+    const date = new Date(d.date);
+    const weekStart = new Date(date);
+    weekStart.setDate(date.getDate() - date.getDay());
+    const key = `${weekStart.getMonth()+1}/${weekStart.getDate()}`;
+    if (!weeks[key]) weeks[key] = 0;
+    weeks[key] += d.events.length;
+  });
+  const weekEntries = Object.entries(weeks);
+  const maxW = Math.max(...weekEntries.map(e => e[1]));
+  const wDiv = document.getElementById("weeklyChart");
+  weekEntries.forEach(([label, cnt]) => {
+    const pct = Math.round(cnt / maxW * 100);
+    wDiv.innerHTML += `
+      <div class="week-bar-wrap">
+        <div class="week-bar" style="height:${pct}%"></div>
+        <div class="week-label">${label}</div>
+      </div>
+    `;
+  });
+}
+
+// ===== FILTERS =====
+let activeMonth = "全部";
+let activeCat = "全部";
+let searchQuery = "";
+
+function applyFilters() {
+  let visibleCount = 0;
+  let visibleDates = new Set();
+
+  allEventCards.forEach(card => {
+    const cardMonth = card.dataset.month;
+    const cardCat = card.dataset.cat;
+    const cardText = card.dataset.text;
+
+    const monthOk = activeMonth === "全部" || cardMonth === activeMonth;
+    const catOk = activeCat === "全部" || cardCat === activeCat;
+    const searchOk = searchQuery === "" || cardText.toLowerCase().includes(searchQuery.toLowerCase());
+
+    if (monthOk && catOk && searchOk) {
+      card.classList.remove("hidden");
+      visibleCount++;
+      visibleDates.add(card.closest(".date-group").dataset.date);
+
+      // Highlight search
+      const textEl = card.querySelector(".event-text");
+      if (searchQuery) {
+        const re = new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        textEl.innerHTML = card.dataset.text.replace(re, '<span class="highlight">$1</span>');
+      } else {
+        textEl.innerHTML = card.dataset.text;
+      }
+    } else {
+      card.classList.add("hidden");
+    }
+  });
+
+  // Show/hide date groups
+  allDateGroups.forEach(group => {
+    const visibleCards = group.querySelectorAll(".event-card:not(.hidden)");
+    if (visibleCards.length === 0) {
+      group.classList.add("hidden");
+    } else {
+      group.classList.remove("hidden");
+    }
+  });
+
+  // Show/hide month dividers
+  document.querySelectorAll(".month-divider").forEach(div => {
+    const m = div.dataset.month;
+    const hasVisible = activeMonth === "全部" || activeMonth === m;
+    div.style.display = hasVisible ? "" : "none";
+  });
+
+  // No results
+  const noResults = document.getElementById("noResults");
+  noResults.classList.toggle("show", visibleCount === 0);
+
+  // Filter status
+  const status = document.getElementById("filterStatus");
+  if (activeMonth !== "全部" || activeCat !== "全部" || searchQuery) {
+    status.innerHTML = `显示 <span>${visibleCount}</span> 条事件`;
+  } else {
+    status.innerHTML = "";
+  }
+}
+
+// Month buttons
+document.querySelectorAll("[data-month]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-month]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeMonth = btn.dataset.month;
+    applyFilters();
+  });
+});
+
+// Category buttons
+document.querySelectorAll("[data-cat]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("[data-cat]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeCat = btn.dataset.cat;
+    applyFilters();
+  });
+});
+
+// Search
+let searchTimer;
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQuery = e.target.value.trim();
+    applyFilters();
+  }, 200);
+});
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+
+function observeGroups() {
+  document.querySelectorAll(".fade-in-up").forEach(el => observer.observe(el));
+}
+
+// ===== BACK TO TOP =====
+const backToTop = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  backToTop.classList.toggle("show", window.scrollY > 500);
+});
+backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+// ===== PARTICLES =====
+function createParticles() {
+  const container = document.getElementById("particles");
+  const colors = ["#00d4ff", "#8b5cf6", "#ec4899", "#10b981"];
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+    const size = Math.random() * 3 + 1;
+    p.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${Math.random() * 100}%;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      animation-duration: ${Math.random() * 15 + 10}s;
+      animation-delay: ${Math.random() * 10}s;
+      box-shadow: 0 0 ${size * 2}px currentColor;
+    `;
+    container.appendChild(p);
+  }
+}
+
+// ===== INIT =====
+createParticles();
+buildTimeline();
+observeGroups();
+
+// Animate stat numbers
+function animateNumber(el, target) {
+  let current = 0;
+  const step = Math.ceil(target / 40);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current;
+    if (current >= target) clearInterval(timer);
+  }, 30);
+}
+
+setTimeout(() => {
+  const totalEl = document.getElementById("totalEvents");
+  const datesEl = document.getElementById("totalDates");
+  animateNumber(totalEl, parseInt(totalEl.textContent));
+  animateNumber(datesEl, parseInt(datesEl.textContent));
+}, 500);
+</script>
+</body>
+</html>
+```
